@@ -3,7 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Users, UsersSchema } from './users/users.schema'
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
-import { MoviesModule } from './movies/movies.module';
+import { MoviesController } from './movies/movies.controller';
+import { MoviesService } from './movies/movies.service';
 import { Movies, MoviesSchema } from './movies/movies.schema';
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -16,9 +17,9 @@ dotenv.config()
         { name: Movies.name, schema: MoviesSchema }
       ]
     ),
-    MoviesModule
+
   ],
-  providers: [UsersService],
-  controllers: [UsersController],
+  providers: [UsersService, MoviesService],
+  controllers: [UsersController, MoviesController],
 })
 export class AppModule { }

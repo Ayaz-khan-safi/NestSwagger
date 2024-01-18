@@ -6,7 +6,8 @@ export type MoviesDocument = Movies & Document
 @Schema()
 export class Movies {
     @Prop()
-    movieName: string
+    movie: string;
+    postedBy: string;
 }
 
 export const MoviesSchema = SchemaFactory.createForClass(Movies)
