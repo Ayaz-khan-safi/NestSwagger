@@ -5,10 +5,11 @@ import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
 import { MoviesModule } from './movies/movies.module';
 import { Movies, MoviesSchema } from './movies/movies.schema';
-
+import * as dotenv from 'dotenv'
+dotenv.config()
 @Module({
   imports: [
-    MongooseModule.forRoot("mongodb+srv://Ayazkhansafi:orcaloayaz@cluster0.j5bkdp6.mongodb.net/practice?retryWrites=true&w=majority"),
+    MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forFeature(
       [
         { name: Users.name, schema: UsersSchema },
